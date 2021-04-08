@@ -6,19 +6,19 @@ import io.github.ryszardp.page.RegisterPage;
 import io.github.ryszardp.service.UserCreator;
 import org.testng.annotations.Test;
 
-public class MainTest extends CommonConditions {
+public class RegTest extends CommonConditions  {
     @Test
     public void openAndClick() {
         User testUser = UserCreator.withCredentialsFromProperty();
-        RegisterPage page = new MainPage(driver)
+        RegisterPage page = new RegisterPage(driver)
                 .openPage()
-                .clickToLogin()
-                .clickToRegistration()
                 .clickToEmailTab()
                 .typeName(testUser)
                 .typePassword(testUser)
                 .typePasswordRepeat(testUser)
-                .typeEmail(testUser);
+                .typeEmail(testUser)
+                .selectSex(testUser)
+                .clickRegister()
+                ;
     }
-
 }
